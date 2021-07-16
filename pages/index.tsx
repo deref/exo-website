@@ -19,7 +19,7 @@ export default function Home() {
 			<br />
 
 			<h3>Install</h3>
-			<pre>{`$ /bin/bash -c "$(curl -fsSL https://exo.deref.io/install.sh)"`}</pre>
+			<pre>{`$ curl -sL https://run.exo.deref.io/install | sh`}</pre>
 
 			<hr />
 
