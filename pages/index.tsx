@@ -7,14 +7,14 @@ export default function Home() {
 				<title>Exo</title>
 				<meta
 					name="description"
-					content="Dev Environment Process Manager & Log Viewer"
+					content={`A process manager & log viewer for dev`}
 				/>
 				<meta content="dark light" name="color-scheme" />
 				<link rel="icon" href="/deref-rounded-icon.png" />
 			</Head>
 
 			<h1>Exo</h1>
-			<p>Dev Environment Process Manager &amp; Log Viewer</p>
+			<p>{`Process manager & log viewer for dev`}</p>
 
 			<br />
 
