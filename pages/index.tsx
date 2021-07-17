@@ -20,6 +20,14 @@ export default function Home() {
 
       <h3>Install</h3>
       <pre>{`$ curl -sL https://download-page.deref.workers.dev/install.sh | sh`}</pre>
+      <p>
+        <small>
+          Prefer manual installation? See{" "}
+          <a href="https://github.com/deref/exo/blob/main/doc/install.md">
+            install.md
+          </a>
+        </small>
+      </p>
 
       <hr />
 
