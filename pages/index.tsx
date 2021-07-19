@@ -43,6 +43,11 @@ export default function Home() {
 			</p>
 			<pre>{`export PATH="$PATH:$HOME/.exo/bin"`}</pre>
 			<p>
+				To make this change permanent, add the <code>export</code> line to your shell's initialization script.
+				For example, the following will add `exo` to the path for Bash:
+			</p>
+			<pre>{`echo 'export PATH="$PATH:$HOME/.exo/bin"' >> ~/.bashrc`}</pre>
+			<p>
 				Run <code>exo gui</code> in your project directory.
 			</p>
 
