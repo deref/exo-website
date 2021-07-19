@@ -1,22 +1,38 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 import SvgGUI from "~/public/svg/dark-exo.svg";
 
 export default function Home() {
+	const [title, setTitle] = useState("exo");
+
+	useEffect(() => {
+		const titleBlinker = setInterval(() => {
+			if (title === "exo") {
+				setTitle("exo_");
+			} else {
+				setTitle("exo");
+			}
+		}, 500);
+
+		return () => {
+			clearInterval(titleBlinker);
+		};
+	}, [title]);
+
+	const description = "Process manager & log viewer for dev";
+
 	return (
 		<div>
 			<Head>
-				<title>exo</title>
-				<meta
-					name="description"
-					content={`A process manager & log viewer for dev`}
-				/>
+				<title>{title}</title>
+				<meta name="description" content={description} />
 				<meta content="dark light" name="color-scheme" />
 				<link rel="icon" href="/deref-rounded-icon.png" />
 			</Head>
 
 			<h1>exo</h1>
-			<p>{`Process manager & log viewer for dev`}</p>
+			<p>{description}</p>
 
 			<br />
 
@@ -43,9 +59,10 @@ export default function Home() {
 			</p>
 			<pre>{`export PATH="$PATH:$HOME/.exo/bin"`}</pre>
 			<p>
-				To make this change permanent, add the <code>export</code> line to your shell&apos;s initialization script.
-				For example, the following will add `exo` to the path for Bash:
+				To make this change permanent, add the <code>export</code> line to your
+				shell&apos;s initialization script.
 			</p>
+			<p>For example, the following will add `exo` to the path for Bash:</p>
 			<pre>{`echo 'export PATH="$PATH:$HOME/.exo/bin"' >> ~/.bashrc`}</pre>
 			<p>
 				Run <code>exo gui</code> in your project directory.
@@ -53,20 +70,8 @@ export default function Home() {
 
 			<hr />
 
-			<h3>Telemetry</h3>
 			<p>
-				<code>exo</code> collects limited and anonymous telemetry data by default. This behavior
-				can be disabled by adding the following setting to your exo config (located at <code>~/.exo/config.toml</code> by
-				default):
-			</p>
-			<pre>{`[telemetry]
-enabled: false`}</pre>
-
-			<hr />
-
-
-			<p>
-				<a href="https://github.com/deref/exo">Github repository</a>
+				<a href="https://github.com/deref/exo">GitHub repository</a>
 			</p>
 
 			<br />
