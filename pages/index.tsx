@@ -53,6 +53,18 @@ export default function Home() {
 
 			<hr />
 
+			<h3>Telemetry</h3>
+			<p>
+				<code>exo</code> collects limited and anonymous telemetry data by default. This behavior
+				can be disabled by adding the following setting to your exo config (located at <code>~/.exo/config.toml</code> by
+				default):
+			</p>
+			<pre>{`[telemetry]
+enabled: false`}</pre>
+
+			<hr />
+
+
 			<p>
 				<a href="https://github.com/deref/exo">Github repository</a>
 			</p>
