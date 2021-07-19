@@ -31,7 +31,7 @@ export default function Home() {
 				<link rel="icon" href="/deref-rounded-icon.png" />
 			</Head>
 
-			<h1>exo</h1>
+			<h1>{title}</h1>
 			<p>{description}</p>
 
 			<br />
