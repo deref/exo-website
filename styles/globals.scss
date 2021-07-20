@@ -7,7 +7,7 @@ body {
 }
 
 body {
-	padding: 60px;
+	padding: max(min(60px, 15vw - 30px), 20px);
 	margin: 0 auto;
 	max-width: 800px;
 }
