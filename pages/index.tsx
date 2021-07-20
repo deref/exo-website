@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-import SvgGUI from "~/public/svg/dark-exo.svg";
+import LightSvgGUI from "~/public/svg/V2-Light.svg";
+import DarkSvgGUI from "~/public/svg/V2-Dark.svg";
 
 export default function Home() {
 	const [title, setTitle] = useState("exo");
@@ -37,7 +38,12 @@ export default function Home() {
 			<br />
 
 			<div className="svg-wrapper">
-				<SvgGUI />
+				<div className="light-only">
+					<LightSvgGUI />
+				</div>
+				<div className="dark-only">
+					<DarkSvgGUI />
+				</div>
 			</div>
 
 			<br />
