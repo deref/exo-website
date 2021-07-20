@@ -3,6 +3,10 @@
         {
             "source": "/install",
             "destination": "https://download-page.deref.workers.dev/install.sh"
+        },
+        {
+            "source": "/latest-version",
+            "destination": "https://download-page.deref.workers.dev/version.txt"
         }
     ]
 }
