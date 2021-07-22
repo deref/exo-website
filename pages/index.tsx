@@ -26,7 +26,7 @@ export default function Home() {
 	return (
 		<div>
 			<Head>
-				<title>{title}</title>
+				<title>exo</title>
 				<meta name="description" content={description} />
 				<meta content="dark light" name="color-scheme" />
 				<link rel="icon" href="/deref-rounded-icon.png" />
