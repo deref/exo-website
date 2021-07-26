@@ -6,6 +6,29 @@ body {
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+	--blue-text: #0070f0;
+	--orange-text: #b3231e;
+	--yellow-text: #bda000;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--blue-text: #77bbff;
+		--orange-text: #ff6655;
+		--yellow-text: #ffcc55;
+	}
+}
+
+.blue-text {
+	color: var(--blue-text);
+}
+.orange-text {
+	color: var(--orange-text);
+}
+.yellow-text {
+	color: var(--yellow-text);
+}
+
 body {
 	padding: max(min(60px, 15vw - 30px), 20px);
 	margin: 0 auto;
@@ -27,18 +50,6 @@ a {
 
 	svg {
 		max-width: 100%;
-	}
-}
-
-.dark-only {
-	display: none;
-}
-@media (prefers-color-scheme: dark) {
-	.dark-only {
-		display: block;
-	}
-	.light-only {
-		display: none;
 	}
 }
 
@@ -72,6 +83,7 @@ code {
 	background: #44444411;
 	font-family: "Fira Code", monospace;
 	font-size: 0.85em;
+	font-weight: 450;
 	border-radius: 0.5em;
 }
 
@@ -98,4 +110,16 @@ h3,
 b,
 strong {
 	font-weight: 550;
+}
+
+.dark-only {
+	display: none;
+}
+@media (prefers-color-scheme: dark) {
+	.dark-only {
+		display: block;
+	}
+	.light-only {
+		display: none;
+	}
 }

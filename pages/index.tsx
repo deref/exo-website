@@ -49,7 +49,13 @@ export default function Home() {
 			<br />
 
 			<h3>Install</h3>
-			<pre>{`curl -sL https://exo.deref.io/install | sh`}</pre>
+			<pre>
+				<span className="yellow-text">{`curl`}</span>
+				<span className="blue-text">{` -sL `}</span>
+				<span>{`https://exo.deref.io/install `}</span>
+				<span className="blue-text">{`|`}</span>
+				<span className="yellow-text">{` sh`}</span>
+			</pre>
 			<p>
 				Prefer manual installation? See{" "}
 				<a href="https://github.com/deref/exo/blob/main/doc/install.md">
@@ -63,13 +69,26 @@ export default function Home() {
 			<p>
 				Add exo to your <code>PATH</code>:
 			</p>
-			<pre>{`export PATH="$PATH:$HOME/.exo/bin"`}</pre>
+			<pre>
+				<span className="yellow-text">{`export`}</span>
+				<span>{` PATH`}</span>
+				<span className="blue-text">{`=`}</span>
+				<span className="orange-text">{`"$PATH:$HOME/.exo/bin"`}</span>
+			</pre>
 			<p>
 				To make this change permanent, add the <code>export</code> line to your
 				shell&apos;s initialization script.
 			</p>
 			<p>For example, the following will add `exo` to the path for Bash:</p>
-			<pre>{`echo 'export PATH="$PATH:$HOME/.exo/bin"' >> ~/.bashrc`}</pre>
+			<pre>
+				<span className="yellow-text">{`echo`}</span>
+				<span className="orange-text">{` 'export`}</span>
+				<span>{` PATH`}</span>
+				<span className="blue-text">{`=`}</span>
+				<span className="orange-text">{`"$PATH:$HOME/.exo/bin"'`}</span>
+				<span className="blue-text">{` >> `}</span>
+				<span>{`~/.bashrc`}</span>
+			</pre>
 			<p>
 				Run <code>exo gui</code> in your project directory.
 			</p>
