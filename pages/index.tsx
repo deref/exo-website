@@ -116,11 +116,18 @@ export default function Home() {
 				.
 			</p>
 
+			<br />
+
 			<hr />
 
-			<p>
-				<a href="https://github.com/deref/exo">GitHub repository</a>
+			<p style={{ textAlign: "center" }}>
+				Support Exo by starring our{" "}
+				<a href="https://github.com/deref/exo">GitHub repository</a>. &nbsp;
+				Thank you &nbsp;
+				{":)"}
 			</p>
+
+			<hr />
 
 			<br />
 
