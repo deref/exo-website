@@ -100,7 +100,7 @@ export default function Home() {
       </p>
       <pre>
         <span className="yellow-text">{`exo`}</span>
-        <span>{` run ./path/to/Proxfile`}</span>
+        <span>{` run ./path/to/Procfile`}</span>
       </pre>
       <p>
         For more, see{" "}
