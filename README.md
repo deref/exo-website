@@ -1,4 +1,4 @@
-This is the code for [exo.deref.io](https://exo.deref.io).
+This is the code for [exo.deref.io](https://exo.deref.io)
 
 ## Getting Started
 
