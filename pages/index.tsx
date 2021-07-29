@@ -62,6 +62,12 @@ export default function Home() {
           install.md
         </a>
       </p>
+      <p>
+        Easy to uninstall too:
+        <a href="https://github.com/deref/exo/blob/main/doc/uninstall.md">
+          install.md
+        </a>
+      </p>
 
       <hr />
 
