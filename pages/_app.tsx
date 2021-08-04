@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "~/styles/global.scss";
+import "~/styles/globals.scss";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import * as gtag from "~/lib/gtag";
