@@ -1,6 +1,26 @@
-const axios = require("axios");
+import { VercelRequest, VercelResponse } from "@vercel/node";
+import * as rt from "runtypes";
+import axios from "axios";
 
 const telemetryEndpoint = "https://pet-bluegill-84.hasura.app/api/rest";
+
+const RecordEventMessage = rt.Record({
+  id: rt.String,
+  sessionId: rt.Optional(rt.String),
+  payload: rt.Dictionary(rt.Unknown),
+});
+type RecordEventMessage = rt.Static<typeof RecordEventMessage>;
+
+const TelemetryRequest = rt.Union(
+  rt.Record({
+    method: rt.Literal("start-session"),
+  }),
+  rt.Record({
+    method: rt.Literal("record-event"),
+    data: RecordEventMessage,
+  })
+);
+type TelemetryRequest = rt.Static<typeof TelemetryRequest>;
 
 const makeTelemetryRequest = async (path: string, body: unknown) => {
   try {
@@ -12,9 +32,9 @@ const makeTelemetryRequest = async (path: string, body: unknown) => {
   }
 };
 
-const newSession = async (req): Promise<string> => {
+const newSession = async (req: VercelRequest): Promise<string> => {
   const userAgent = req.headers["user-agent"];
-  const ip = req.headers["x-real-ip"] ?? req.connection.remoteAddress;
+  const ip = req.headers["x-real-ip"] ?? req.socket.remoteAddress;
   const country = req.headers["x-vercel-ip-country"];
   const regionCode = req.headers["x-vercel-ip-country-region"];
   const city = req.headers["x-vercel-ip-city"];
@@ -33,58 +53,47 @@ const newSession = async (req): Promise<string> => {
   return sessionId;
 };
 
-const startSession = async (req, res) => {
+const startSession = async (req: VercelRequest, res: VercelResponse) => {
   const sessionId = await newSession(req);
   res.status(200).json({ sessionId });
 };
 
-const recordEvent = async (req, res, data) => {
-  if (data === undefined) {
-    res.status(400).send('expected "data"');
-    return;
-  }
-
+const recordEvent = async (
+  req: VercelRequest,
+  res: VercelResponse,
+  data: RecordEventMessage
+) => {
   let { id, payload, sessionId } = data;
-  if (id === undefined || payload === undefined) {
-    res.status(400).send('record-event expects "id" and "payload"');
-    return;
-  }
-
   if (sessionId == null) {
     sessionId = await newSession(req);
   }
 
-  await makeTelemetryRequest('/events', {
+  await makeTelemetryRequest("/events", {
     sessionId,
     eventDefinitionId: id,
     value: JSON.stringify(payload),
-  })
-  res.status(200).send();
+  });
+  res.status(200).send("");
 };
 
-export default async function handler(req, res) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
-    res.status(406).send();
+    res.status(406).send("");
     return;
   }
 
-  if (req.body === null || typeof req.body !== "object") {
-    res.status(400).send("expected request body");
-    return;
+  let body: TelemetryRequest;
+  try {
+    body = TelemetryRequest.check(req.body);
+  } catch (err: unknown) {
+    res.status(400).send(err);
+    return
   }
 
-  const { method, data } = req.body;
-  if (method === undefined) {
-    res.status(400).send('expected "method"');
-    return;
-  }
-
-  switch (method) {
+  switch (body.method) {
     case "record-event":
-      return recordEvent(req, res, data);
+      return recordEvent(req, res, body.data);
     case "start-session":
       return startSession(req, res);
   }
-
-  res.status(400).send();
 }
