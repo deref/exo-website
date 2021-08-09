@@ -71,7 +71,7 @@ const recordEvent = async (
   await makeTelemetryRequest("/events", {
     sessionId,
     eventDefinitionId: id,
-    value: JSON.stringify(payload),
+    value: payload,
   });
   res.status(200).send("");
 };
