@@ -34,6 +34,9 @@ export default function Home() {
 
       <h1>{title}</h1>
       <p>{description}</p>
+      <p>
+        <small>Compatible with Procfiles and Docker Compose</small>
+      </p>
 
       <br />
 
@@ -102,12 +105,12 @@ export default function Home() {
         <span>{` gui`}</span>
       </pre>
       <p>
-        If you want to use exo as a drop-in replacement for Foreman or another
-        Procfile runner, use <code>exo run</code> instead:
+        If you want to use exo as a drop-in replacement for Foreman or Docker
+        Compose, use <code>exo run</code> instead:
       </p>
       <pre>
         <span className="yellow-text">{`exo`}</span>
-        <span>{` run ./path/to/Procfile`}</span>
+        <span>{` run`}</span>
       </pre>
       <p>
         For more, see{" "}
