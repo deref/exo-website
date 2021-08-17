@@ -38,12 +38,13 @@ export default function Home() {
 			<br />
 
 			<div className="svg-wrapper">
-				<div className="light-only">
+				<div className="png-screenshot" />
+				{/* <div className="light-only">
 					<LightSvgGUI />
 				</div>
 				<div className="dark-only">
 					<DarkSvgGUI />
-				</div>
+				</div> */}
 			</div>
 
 			<br />

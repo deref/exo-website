@@ -123,3 +123,12 @@ strong {
 		display: none;
 	}
 }
+
+/* Temp */
+.png-screenshot {
+	aspect-ratio: 2;
+	width: 100%;
+	background: url("/exo-screenshot-170821.png");
+	background-size: cover;
+	background-position: center;
+}
