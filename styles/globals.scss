@@ -46,7 +46,7 @@ a {
 		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
 	border-radius: 8px;
 	overflow: hidden;
-	aspect-ratio: calc(1122 / 524);
+	// aspect-ratio: calc(1122 / 524);
 
 	svg {
 		max-width: 100%;
@@ -112,6 +112,14 @@ strong {
 	font-weight: 550;
 }
 
+/* Temp */
+.png-screenshot {
+	width: 100%;
+	aspect-ratio: 1.777;
+	background: url("/light-190821.png");
+	background-size: cover;
+}
+
 .dark-only {
 	display: none;
 }
@@ -122,13 +130,8 @@ strong {
 	.light-only {
 		display: none;
 	}
-}
-
-/* Temp */
-.png-screenshot {
-	aspect-ratio: 2;
-	width: 100%;
-	background: url("/exo-screenshot-170821.png");
-	background-size: cover;
-	background-position: center;
+	.png-screenshot {
+		background: url("/black-190821.png");
+		background-size: cover;
+	}
 }
