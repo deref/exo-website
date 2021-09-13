@@ -65,15 +65,11 @@ export default function Home() {
 			</pre>
 			<p>
 				Prefer manual installation? See{" "}
-				<a href="https://github.com/deref/exo/blob/main/doc/install.md">
-					install.md
-				</a>
+				<a href="https://docs.deref.io/exo/install">install docs</a>.
 			</p>
 			<p>
 				Easy to uninstall too:{" "}
-				<a href="https://github.com/deref/exo/blob/main/doc/uninstall.md">
-					uninstall.md
-				</a>
+				<a href="https://docs.deref.io/exo/uninstall">uninstall docs</a>.
 			</p>
 
 			<hr />
@@ -116,11 +112,7 @@ export default function Home() {
 				<span>{` run`}</span>
 			</pre>
 			<p>
-				For more, see{" "}
-				<a href="https://github.com/deref/exo/blob/main/doc/guide.md">
-					the guide
-				</a>
-				.
+				For more, see <a href="https://docs.deref.io/exo/guide">the guide</a>.
 			</p>
 
 			<br />
