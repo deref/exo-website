@@ -61,7 +61,7 @@ export default function Home() {
 				<span className="blue-text">{` -sL `}</span>
 				<span>{`https://exo.deref.io/install `}</span>
 				<span className="blue-text">{`|`}</span>
-				<span className="yellow-text">{` sh`}</span>
+				<span className="yellow-text">{` bash`}</span>
 			</pre>
 			<p>
 				Prefer manual installation? See{" "}
