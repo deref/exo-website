@@ -6,6 +6,10 @@ body {
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+::selection {
+	background: #99999944;
+}
+
 :root {
 	--blue-text: #0070f0;
 	--orange-text: #b3231e;
@@ -29,19 +33,9 @@ body {
 	color: var(--yellow-text);
 }
 
-body {
-	padding: max(min(60px, 15vw - 30px), 20px);
-	margin: 0 auto;
-	max-width: 800px;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
-}
-
-.main-div {
-	position: relative;
 }
 
 .docs-link {
@@ -55,19 +49,6 @@ a {
 
 	&:hover {
 		opacity: 1;
-	}
-}
-
-.svg-wrapper {
-	position: relative;
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
-	border-radius: 8px;
-	overflow: hidden;
-	// aspect-ratio: calc(1122 / 524);
-
-	svg {
-		max-width: 100%;
 	}
 }
 
@@ -130,26 +111,25 @@ strong {
 	font-weight: 550;
 }
 
-/* Temp */
-.png-screenshot {
-	width: 100%;
-	aspect-ratio: 1.777;
-	background: url("/light-121021.png");
-	background-size: cover;
+button {
+	color: currentColor;
 }
 
-.dark-only {
-	display: none;
+/* Avoid awful default scrollbars in most OS/Browsers, especially in horizontally scrolling text displays. */
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 4px;
+	background: #333333;
+	margin: 4px;
+	position: relative;
 }
-@media (prefers-color-scheme: dark) {
-	.dark-only {
-		display: block;
-	}
-	.light-only {
-		display: none;
-	}
-	.png-screenshot {
-		background: url("/black-121021.png");
-		background-size: cover;
-	}
+
+::-webkit-scrollbar-thumb {
+	background: #666666;
+	border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #999999;
 }

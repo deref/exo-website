@@ -1,0 +1,37 @@
+.wrapper {
+	padding: max(min(60px, 15vw - 30px), 20px);
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+.mainDiv {
+	position: relative;
+}
+
+.pngWrapper {
+	position: relative;
+	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
+		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	overflow: hidden;
+	// aspect-ratio: calc(1122 / 524);
+
+	svg {
+		max-width: 100%;
+	}
+}
+
+/* Temp */
+.pngScreenshot {
+	width: 100%;
+	aspect-ratio: 1.777;
+	background: url("/light-121021.png");
+	background-size: cover;
+}
+
+@media (prefers-color-scheme: dark) {
+	.pngScreenshot {
+		background: url("/black-121021.png");
+		background-size: cover;
+	}
+}

@@ -1,0 +1,249 @@
+.GsButton {
+	background: linear-gradient(0deg, #f0f0f0, #ffffff);
+	box-shadow: 0 0.25px 0 1px #00000033, 0 6px 12px #00000022;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 500;
+	height: 52px;
+	width: 240px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	outline: none;
+	margin-top: 60px;
+
+	span {
+		user-select: none;
+	}
+
+	&:hover,
+	&:focus-within {
+		background: linear-gradient(0deg, #2773ff33, #2773ff11);
+		box-shadow: 0 0 0 1px #2773ff88, 0 6px 12px #0044ff22;
+		color: #0049cf;
+	}
+
+	svg {
+		width: 16px;
+		height: 16px;
+		margin-left: -8px;
+	}
+}
+
+.Columns {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 40px;
+	padding-top: 200px;
+}
+
+.ScrollContent {
+	font-size: 16px;
+
+	h1 {
+		font-size: 40px;
+		margin: 0;
+		margin-bottom: 24px;
+	}
+
+	p {
+		margin: 0;
+		margin-bottom: 12px;
+	}
+}
+
+.VideoWrapper {
+	position: relative;
+}
+
+.PngWrapper {
+	position: fixed;
+	width: 780px;
+	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
+		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	overflow: hidden;
+	// aspect-ratio: calc(1122 / 524);
+
+	svg {
+		max-width: 100%;
+	}
+}
+
+.OSList {
+	font-size: 12px;
+	color: #334455;
+	margin: 40px 0;
+
+	p {
+		margin-bottom: 20px;
+	}
+}
+
+.Dark .OSList {
+	color: #b0b3b6;
+}
+
+.Main {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background: var(--bg-color);
+	color: var(--color);
+}
+
+.Clip {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.Header {
+	position: fixed;
+	z-index: 100;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	background: linear-gradient(
+		0deg,
+		var(--bg-color-transparent),
+		var(--bg-color) 40%
+	);
+
+	> div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 80px 0;
+	}
+
+	.Logo {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 16px;
+		font-weight: 500;
+		padding: 12px;
+		margin: -12px;
+
+		div {
+			width: 24px;
+			height: 24px;
+			background: url("/deref-rounded-icon.png");
+			background-size: contain;
+		}
+	}
+
+	.Links {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+
+		.GitHubLink {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+
+			svg {
+				height: 13px;
+				width: 13px;
+			}
+		}
+
+		a {
+			display: block;
+			padding: 9px;
+			margin: -9px;
+			font-size: 14px;
+			font-weight: 500;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.ThemeButton {
+			background: none;
+			border: none;
+			padding: 0;
+			margin: 0;
+			width: 36px;
+			height: 36px;
+			margin: -9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			svg {
+				width: 18px;
+				height: 18px;
+			}
+		}
+	}
+}
+
+.Footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	background: linear-gradient(
+		0deg,
+		var(--bg-color) 33.33%,
+		var(--bg-color-transparent)
+	);
+
+	> div {
+		height: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		font-size: 12px;
+		gap: 24px;
+
+		a {
+			font-weight: 600;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.PngScreenshot {
+	width: 100%;
+	aspect-ratio: 1.777;
+	background: url("/light-121021.png");
+	background-size: cover;
+}
+
+.Light {
+	--bg-color: #ffffff;
+	--bg-color-transparent: #ffffff00;
+	--color: #223344;
+}
+
+.Dark {
+	--bg-color: #040608;
+	--bg-color-transparent: #04060800;
+	--color: #eeffff;
+
+	.GsButton {
+		background: linear-gradient(0deg, #202323, #303434);
+		box-shadow: 0 -0.5px 0 1px #ddffff44;
+
+		&:hover,
+		&:focus-within {
+			background: linear-gradient(0deg, #2773ff44, #2773ff66);
+			box-shadow: 0 0 0 1px #2773ff, 0 6px 18px 6px #0044ff44;
+			color: #ffffffx;
+		}
+	}
+
+	.PngScreenshot {
+		background: url("/black-121021.png");
+		background-size: cover;
+	}
+}

@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import css from "~/styles/v1.module.scss";
 
 import LightSvgGUI from "~/public/svg/V2-Light.svg";
 import DarkSvgGUI from "~/public/svg/V2-Dark.svg";
@@ -24,117 +25,116 @@ export default function Home() {
 	const description = "Process manager & log viewer for dev";
 
 	return (
-		<div className="main-div">
-			<Head>
-				<title>exo</title>
-				<meta name="description" content={description} />
-				<meta content="dark light" name="color-scheme" />
-				<link rel="icon" href="/deref-rounded-icon.png" />
-			</Head>
+		<div className={css.wrapper}>
+			<div className={css.mainDiv}>
+				<Head>
+					<title>exo</title>
+					<meta name="description" content={description} />
+					<meta content="dark light" name="color-scheme" />
+					<link rel="icon" href="/deref-rounded-icon.png" />
+				</Head>
 
-			<h1>{title}</h1>
-			<a className="docs-link" href="https://docs.deref.io/exo">
-				docs
-			</a>
-			<p>{description}</p>
-			<p>
-				<small>Compatible with Procfiles and Docker Compose</small>
-			</p>
-
-			<br />
-
-			<div className="svg-wrapper">
-				<div className="png-screenshot" />
-				{/* <div className="light-only">
-					<LightSvgGUI />
-				</div>
-				<div className="dark-only">
-					<DarkSvgGUI />
-				</div> */}
-			</div>
-
-			<br />
-
-			<h3>Install</h3>
-			<pre>
-				<span className="yellow-text">{`curl`}</span>
-				<span className="blue-text">{` -sL `}</span>
-				<span>{`https://exo.deref.io/install `}</span>
-				<span className="blue-text">{`|`}</span>
-				<span className="yellow-text">{` bash`}</span>
-			</pre>
-			<p>
-				Prefer manual installation? See{" "}
-				<a href="https://docs.deref.io/exo/using-exo/install">install docs</a>.
-			</p>
-			<p>
-				Easy to uninstall too:{" "}
-				<a href="https://docs.deref.io/exo/using-exo/uninstall">
-					uninstall docs
+				<h1>{title}</h1>
+				<a className="docs-link" href="https://docs.deref.io/exo">
+					docs
 				</a>
-				.
-			</p>
+				<p>{description}</p>
+				<p>
+					<small>Compatible with Procfiles and Docker Compose</small>
+				</p>
 
-			<hr />
+				<br />
 
-			<h3>Getting started</h3>
-			<p>
-				Add exo to your <code>PATH</code>:
-			</p>
-			<pre>
-				<span className="yellow-text">{`export`}</span>
-				<span>{` PATH`}</span>
-				<span className="blue-text">{`=`}</span>
-				<span className="orange-text">{`"$PATH:$HOME/.exo/bin"`}</span>
-			</pre>
-			<p>
-				To make this change permanent, add the <code>export</code> line to your
-				shell&apos;s initialization script.
-			</p>
-			<p>For example, the following will add `exo` to the path for Bash:</p>
-			<pre>
-				<span className="yellow-text">{`echo`}</span>
-				<span className="orange-text">{` 'export`}</span>
-				<span>{` PATH`}</span>
-				<span className="blue-text">{`=`}</span>
-				<span className="orange-text">{`"$PATH:$HOME/.exo/bin"'`}</span>
-				<span className="blue-text">{` >> `}</span>
-				<span>{`~/.bashrc`}</span>
-			</pre>
-			<p>Once installed, the easiest way to get going is to launch the GUI:</p>
-			<pre>
-				<span className="yellow-text">{`exo`}</span>
-				<span>{` gui`}</span>
-			</pre>
-			<p>
-				If you want to use exo as a drop-in replacement for Foreman or Docker
-				Compose, use <code>exo run</code> instead:
-			</p>
-			<pre>
-				<span className="yellow-text">{`exo`}</span>
-				<span>{` run`}</span>
-			</pre>
-			<p>
-				For more, see{" "}
-				<a href="https://docs.deref.io/exo/using-exo/guide">the guide</a>.
-			</p>
+				<div className={css.pngWrapper}>
+					<div className={css.pngScreenshot} />
+				</div>
 
-			<br />
+				<br />
 
-			<hr />
+				<h3>Install</h3>
+				<pre>
+					<span className="yellow-text">{`curl`}</span>
+					<span className="blue-text">{` -sL `}</span>
+					<span>{`https://exo.deref.io/install `}</span>
+					<span className="blue-text">{`|`}</span>
+					<span className="yellow-text">{` bash`}</span>
+				</pre>
+				<p>
+					Prefer manual installation? See{" "}
+					<a href="https://docs.deref.io/exo/using-exo/install">install docs</a>
+					.
+				</p>
+				<p>
+					Easy to uninstall too:{" "}
+					<a href="https://docs.deref.io/exo/using-exo/uninstall">
+						uninstall docs
+					</a>
+					.
+				</p>
 
-			<p style={{ textAlign: "center" }}>
-				Support Exo by starring our{" "}
-				<a href="https://github.com/deref/exo">GitHub repository</a>. &nbsp;
-				Thank you &nbsp;
-				{":)"}
-			</p>
+				<hr />
 
-			<hr />
+				<h3>Getting started</h3>
+				<p>
+					Add exo to your <code>PATH</code>:
+				</p>
+				<pre>
+					<span className="yellow-text">{`export`}</span>
+					<span>{` PATH`}</span>
+					<span className="blue-text">{`=`}</span>
+					<span className="orange-text">{`"$PATH:$HOME/.exo/bin"`}</span>
+				</pre>
+				<p>
+					To make this change permanent, add the <code>export</code> line to
+					your shell&apos;s initialization script.
+				</p>
+				<p>For example, the following will add `exo` to the path for Bash:</p>
+				<pre>
+					<span className="yellow-text">{`echo`}</span>
+					<span className="orange-text">{` 'export`}</span>
+					<span>{` PATH`}</span>
+					<span className="blue-text">{`=`}</span>
+					<span className="orange-text">{`"$PATH:$HOME/.exo/bin"'`}</span>
+					<span className="blue-text">{` >> `}</span>
+					<span>{`~/.bashrc`}</span>
+				</pre>
+				<p>
+					Once installed, the easiest way to get going is to launch the GUI:
+				</p>
+				<pre>
+					<span className="yellow-text">{`exo`}</span>
+					<span>{` gui`}</span>
+				</pre>
+				<p>
+					If you want to use exo as a drop-in replacement for Foreman or Docker
+					Compose, use <code>exo run</code> instead:
+				</p>
+				<pre>
+					<span className="yellow-text">{`exo`}</span>
+					<span>{` run`}</span>
+				</pre>
+				<p>
+					For more, see{" "}
+					<a href="https://docs.deref.io/exo/using-exo/guide">the guide</a>.
+				</p>
 
-			<br />
+				<br />
 
-			<p>Copyright 2021 Deref Inc. &nbsp; All rights reserved.</p>
+				<hr />
+
+				<p style={{ textAlign: "center" }}>
+					Support Exo by starring our{" "}
+					<a href="https://github.com/deref/exo">GitHub repository</a>. &nbsp;
+					Thank you &nbsp;
+					{":)"}
+				</p>
+
+				<hr />
+
+				<br />
+
+				<p>Copyright 2021 Deref Inc. &nbsp; All rights reserved.</p>
+			</div>
 		</div>
 	);
 }
