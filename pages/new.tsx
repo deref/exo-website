@@ -14,7 +14,7 @@ import Download from "~/com/Download.svg";
 const urls = {
 	docs: "https://docs.deref.io/exo",
 	github: "https://github.com/deref/exo",
-	download: "https://docs.deref.io/exo/using-exo/install",
+	download: "https://github.com/deref/exo#getting-started",
 	license: "https://github.com/deref/exo/blob/main/LICENSE",
 	privacy: "/",
 };
