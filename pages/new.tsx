@@ -11,6 +11,14 @@ import Sun from "~/com/Sun.svg";
 import GitHub from "~/com/GitHub.svg";
 import Download from "~/com/Download.svg";
 
+const urls = {
+	docs: "https://docs.deref.io/exo",
+	github: "https://github.com/deref/exo",
+	download: "https://docs.deref.io/exo/using-exo/install",
+	license: "https://github.com/deref/exo/blob/main/LICENSE",
+	privacy: "/",
+};
+
 export default function Home() {
 	const [title, setTitle] = useState("exo");
 	const [dark, setDark] = useState(false);
@@ -89,10 +97,10 @@ export default function Home() {
 						</a>
 					</Link>
 					<div className={css.Links}>
-						<Link href="https://docs.deref.io/exo">
+						<Link href={urls.docs}>
 							<a>Docs</a>
 						</Link>
-						<Link href="https://github.com/deref/exo">
+						<Link href={urls.github}>
 							<a className={css.GitHubLink}>
 								<GitHub />
 								GitHub
@@ -115,7 +123,7 @@ export default function Home() {
 						<p>{description}</p>
 						<p>Compatible with Procfiles and Docker Compose.</p>
 
-						<Link href="/get-started">
+						<Link href={urls.download}>
 							<a className={css.GsButton}>
 								<Download />
 								<span>Get started with exo</span>
@@ -139,10 +147,10 @@ export default function Home() {
 			<footer className={css.Footer}>
 				<div className={css.Clip}>
 					<p>Copyright {new Date().getFullYear()} Deref Inc.</p>
-					<Link href="/">
+					<Link href={urls.license}>
 						<a>License</a>
 					</Link>
-					<Link href="/">
+					<Link href={urls.privacy}>
 						<a>Privacy Policy</a>
 					</Link>
 				</div>
