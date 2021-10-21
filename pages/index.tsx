@@ -1,14 +1,58 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import css from "~/styles/v1.module.scss";
+import Link from "next/link";
 
-import LightSvgGUI from "~/public/svg/V2-Light.svg";
-import DarkSvgGUI from "~/public/svg/V2-Dark.svg";
+import css from "~/styles/v2.module.scss";
+
+import SupportedOSes from "~/com/SupportedOSes.svg";
+
+import Moon from "~/com/Moon.svg";
+import Sun from "~/com/Sun.svg";
+import GitHub from "~/com/GitHub.svg";
+import Download from "~/com/Download.svg";
+
+const urls = {
+	docs: "https://docs.deref.io/exo",
+	github: "https://github.com/deref/exo",
+	download: "https://github.com/deref/exo#getting-started",
+	license: "https://github.com/deref/exo/blob/main/LICENSE",
+	privacy: "/",
+};
 
 export default function Home() {
 	const [title, setTitle] = useState("exo");
+	const [dark, setDark] = useState(false);
+	const [lsTheme, setLsTheme] = useState<string | null>(null);
+	const [scrollY, setScrollY] = useState(0);
+
+	const lsThemeKey = "io.deref.exo/theme";
+
+	const effectiveTheme = () => {
+		if (lsTheme === "Light" || (lsTheme === "Auto" && !dark)) {
+			return "Light";
+		}
+		return "Dark";
+	};
+
+	const toggleTheme = () => {
+		if (effectiveTheme() === "Light") {
+			setLsTheme("Dark");
+			window.localStorage.setItem(lsThemeKey, "Dark");
+		} else {
+			setLsTheme("Light");
+			window.localStorage.setItem(lsThemeKey, "Light");
+		}
+	};
 
 	useEffect(() => {
+		const ls = window.localStorage.getItem(lsThemeKey);
+
+		setLsTheme(ls);
+
+		if (ls === null) {
+			window.localStorage.setItem(lsThemeKey, "Auto");
+		}
+
 		const titleBlinker = setInterval(() => {
 			if (title === "exo") {
 				setTitle("exo_");
@@ -17,124 +61,193 @@ export default function Home() {
 			}
 		}, 500);
 
+		const mqList = window.matchMedia("(prefers-color-scheme: dark)");
+
+		setDark(mqList.matches);
+
+		const handleThemeChange = (e: MediaQueryListEvent) => {
+			setDark(e.matches);
+		};
+
+		mqList.addEventListener("change", handleThemeChange);
+
+		document.addEventListener("scroll", (e) => {
+			setScrollY(
+				Math.round(
+					(100 * window.scrollY) /
+						(document.body.scrollHeight - window.innerHeight)
+				)
+			);
+		});
+
 		return () => {
 			clearInterval(titleBlinker);
 		};
-	}, [title]);
+	}, [title, lsTheme]);
 
-	const description = "Process manager & log viewer for dev";
+	const description = "Process manager & log viewer for dev.";
 
 	return (
-		<div className={css.wrapper}>
-			<div className={css.mainDiv}>
-				<Head>
-					<title>exo</title>
-					<meta name="description" content={description} />
-					<meta content="dark light" name="color-scheme" />
-					<link rel="icon" href="/deref-rounded-icon.png" />
-				</Head>
+		<main className={[css.Main, css[effectiveTheme()]].join(" ")}>
+			<Head>
+				<title>exo</title>
+				<meta name="description" content={description} />
+				<meta content="dark light" name="color-scheme" />
+				<link rel="icon" href="/deref-rounded-icon.png" />
+			</Head>
 
-				<h1>{title}</h1>
-				<a className="docs-link" href="https://docs.deref.io/exo">
-					docs
-				</a>
-				<p>{description}</p>
-				<p>
-					<small>Compatible with Procfiles and Docker Compose</small>
-				</p>
-
-				<br />
-
-				<div className={css.pngWrapper}>
-					<div className={css.pngScreenshot} />
+			<header className={css.Header}>
+				<div className={css.Clip}>
+					<Link href="/">
+						<a>
+							<div className={css.Logo}>
+								<div />
+								exo
+								<span style={{ color: "red" }}>{scrollY}%</span>
+							</div>
+						</a>
+					</Link>
+					<div className={css.Links}>
+						<Link href={urls.docs}>
+							<a>Docs</a>
+						</Link>
+						<Link href={urls.github}>
+							<a className={css.GitHubLink}>
+								<GitHub />
+								GitHub
+							</a>
+						</Link>
+						<button className={css.ThemeButton} onClick={toggleTheme}>
+							{effectiveTheme() === "Light" ? <Moon /> : <Sun />}
+						</button>
+					</div>
 				</div>
+			</header>
 
-				<br />
+			<div className={css.Clip}>
+				<div className={css.Columns}>
+					<article className={css.ScrollContent}>
+						<section>
+							<div>
+								<h1>
+									Meet <b>{title}</b>
+								</h1>
 
-				<h3>Install</h3>
-				<pre>
-					<span className="yellow-text">{`curl`}</span>
-					<span className="blue-text">{` -sL `}</span>
-					<span>{`https://exo.deref.io/install `}</span>
-					<span className="blue-text">{`|`}</span>
-					<span className="yellow-text">{` bash`}</span>
-				</pre>
-				<p>
-					Prefer manual installation? See{" "}
-					<a href="https://docs.deref.io/exo/using-exo/install">install docs</a>
-					.
-				</p>
-				<p>
-					Easy to uninstall too:{" "}
-					<a href="https://docs.deref.io/exo/using-exo/uninstall">
-						uninstall docs
-					</a>
-					.
-				</p>
+								<p>{description}</p>
+								<p>Compatible with Procfiles and Docker Compose.</p>
 
-				<hr />
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
 
-				<h3>Getting started</h3>
-				<p>
-					Add exo to your <code>PATH</code>:
-				</p>
-				<pre>
-					<span className="yellow-text">{`export`}</span>
-					<span>{` PATH`}</span>
-					<span className="blue-text">{`=`}</span>
-					<span className="orange-text">{`"$PATH:$HOME/.exo/bin"`}</span>
-				</pre>
-				<p>
-					To make this change permanent, add the <code>export</code> line to
-					your shell&apos;s initialization script.
-				</p>
-				<p>For example, the following will add `exo` to the path for Bash:</p>
-				<pre>
-					<span className="yellow-text">{`echo`}</span>
-					<span className="orange-text">{` 'export`}</span>
-					<span>{` PATH`}</span>
-					<span className="blue-text">{`=`}</span>
-					<span className="orange-text">{`"$PATH:$HOME/.exo/bin"'`}</span>
-					<span className="blue-text">{` >> `}</span>
-					<span>{`~/.bashrc`}</span>
-				</pre>
-				<p>
-					Once installed, the easiest way to get going is to launch the GUI:
-				</p>
-				<pre>
-					<span className="yellow-text">{`exo`}</span>
-					<span>{` gui`}</span>
-				</pre>
-				<p>
-					If you want to use exo as a drop-in replacement for Foreman or Docker
-					Compose, use <code>exo run</code> instead:
-				</p>
-				<pre>
-					<span className="yellow-text">{`exo`}</span>
-					<span>{` run`}</span>
-				</pre>
-				<p>
-					For more, see{" "}
-					<a href="https://docs.deref.io/exo/using-exo/guide">the guide</a>.
-				</p>
+								<div className={css.OSList}>
+									<p>Available on MacOS, Linux, and WSL.</p>
 
-				<br />
+									<SupportedOSes />
+								</div>
+							</div>
+						</section>
 
-				<hr />
+						<section>
+							<div>
+								<h2>Feature 1</h2>
 
-				<p style={{ textAlign: "center" }}>
-					Support Exo by starring our{" "}
-					<a href="https://github.com/deref/exo">GitHub repository</a>. &nbsp;
-					Thank you &nbsp;
-					{":)"}
-				</p>
+								<p>
+									Leverage agile frameworks to provide a robust synopsis for
+									high level overviews.
+								</p>
 
-				<hr />
+								<p>
+									Iterative approaches to corporate strategy foster
+									collaborative thinking to further the overall value
+									proposition.
+								</p>
 
-				<br />
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
 
-				<p>Copyright 2021 Deref Inc. &nbsp; All rights reserved.</p>
+						<section>
+							<div>
+								<h2>Feature 2</h2>
+
+								<p>
+									Leverage agile frameworks to provide a robust synopsis for
+									high level overviews.
+								</p>
+
+								<p>
+									Iterative approaches to corporate strategy foster
+									collaborative thinking to further the overall value
+									proposition.
+								</p>
+
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
+
+						<section>
+							<div>
+								<h2>Install now.</h2>
+								<pre>
+									<span className={css.Yellow}>{`curl`}</span>
+									<span className={css.Blue}>{` -sL `}</span>
+									<span>{`https://exo.deref.io/install `}</span>
+									<span className={css.Blue}>{`|`}</span>
+									<span className={css.Yellow}>{` bash`}</span>
+								</pre>
+								<p>
+									Prefer manual installation? See{" "}
+									<a href="https://docs.deref.io/exo/using-exo/install">
+										install docs
+									</a>
+									.
+								</p>
+								<p>
+									Easy to uninstall too:{" "}
+									<a href="https://docs.deref.io/exo/using-exo/uninstall">
+										uninstall docs
+									</a>
+									.
+								</p>
+							</div>
+						</section>
+					</article>
+
+					<aside className={css.VideoWrapper}>
+						<div className={css.PngWrapper}>
+							<div className={css.PngScreenshot} />
+							<div className={css.ProgressBar}>
+								<div style={{ width: scrollY + "%" }} />
+							</div>
+						</div>
+					</aside>
+				</div>
 			</div>
-		</div>
+			<footer className={css.Footer}>
+				<div className={css.Clip}>
+					<p>Copyright {new Date().getFullYear()} Deref Inc.</p>
+					<Link href={urls.license}>
+						<a>License</a>
+					</Link>
+					<Link href={urls.privacy}>
+						<a>Privacy Policy</a>
+					</Link>
+				</div>
+			</footer>
+		</main>
 	);
 }
