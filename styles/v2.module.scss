@@ -79,8 +79,9 @@
 }
 
 .ProgressBar {
-	position: relative;
+	position: absolute;
 	width: 100%;
+	bottom: 0;
 
 	div {
 		background: red;
