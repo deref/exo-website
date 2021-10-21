@@ -153,6 +153,54 @@ export default function Home() {
 
 						<section>
 							<div>
+								<h2>Feature 1</h2>
+
+								<p>
+									Leverage agile frameworks to provide a robust synopsis for
+									high level overviews.
+								</p>
+
+								<p>
+									Iterative approaches to corporate strategy foster
+									collaborative thinking to further the overall value
+									proposition.
+								</p>
+
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
+
+						<section>
+							<div>
+								<h2>Feature 2</h2>
+
+								<p>
+									Leverage agile frameworks to provide a robust synopsis for
+									high level overviews.
+								</p>
+
+								<p>
+									Iterative approaches to corporate strategy foster
+									collaborative thinking to further the overall value
+									proposition.
+								</p>
+
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
+
+						<section>
+							<div>
 								<h2>Install now.</h2>
 								<pre>
 									<span className={css.Yellow}>{`curl`}</span>
