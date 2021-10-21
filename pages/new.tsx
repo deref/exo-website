@@ -23,6 +23,7 @@ export default function Home() {
 	const [title, setTitle] = useState("exo");
 	const [dark, setDark] = useState(false);
 	const [lsTheme, setLsTheme] = useState<string | null>(null);
+	const [scrollY, setScrollY] = useState(0);
 
 	const lsThemeKey = "io.deref.exo/theme";
 
@@ -70,6 +71,15 @@ export default function Home() {
 
 		mqList.addEventListener("change", handleThemeChange);
 
+		document.addEventListener("scroll", (e) => {
+			setScrollY(
+				Math.round(
+					(100 * window.scrollY) /
+						(document.body.scrollHeight - window.innerHeight)
+				)
+			);
+		});
+
 		return () => {
 			clearInterval(titleBlinker);
 		};
@@ -93,6 +103,7 @@ export default function Home() {
 							<div className={css.Logo}>
 								<div />
 								exo
+								<span style={{ color: "red" }}>{scrollY}%</span>
 							</div>
 						</a>
 					</Link>
@@ -171,6 +182,9 @@ export default function Home() {
 					<aside className={css.VideoWrapper}>
 						<div className={css.PngWrapper}>
 							<div className={css.PngScreenshot} />
+							<div className={css.ProgressBar}>
+								<div style={{ width: scrollY + "%" }} />
+							</div>
 						</div>
 					</aside>
 				</div>

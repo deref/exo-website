@@ -78,6 +78,16 @@
 	}
 }
 
+.ProgressBar {
+	position: relative;
+	width: 100%;
+
+	div {
+		background: red;
+		height: 3px;
+	}
+}
+
 .OSList {
 	font-size: 12px;
 	color: #334455;
