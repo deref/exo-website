@@ -130,7 +130,7 @@
 	background: linear-gradient(
 		0deg,
 		var(--bg-color-transparent),
-		var(--bg-color) 40%
+		var(--bg-color) 50%
 	);
 
 	> div {
@@ -213,7 +213,7 @@
 	width: 100vw;
 	background: linear-gradient(
 		0deg,
-		var(--bg-color) 33.33%,
+		var(--bg-color),
 		var(--bg-color-transparent)
 	);
 
