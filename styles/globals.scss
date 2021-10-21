@@ -64,31 +64,25 @@ p {
 		}
 	}
 	code {
-		padding: 4px 8px;
-		margin: -4px 0;
+		padding: 0 2px;
+		margin: 0;
 	}
 }
 
 pre {
-	padding: 1em 2em;
+	padding: 0;
+	margin: 24px 0;
 	overflow-x: auto;
 	overflow-y: hidden;
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
 }
 
 pre,
 code {
-	background: #44444411;
+	background: none;
 	font-family: "Fira Code", monospace;
 	font-size: 0.85em;
 	font-weight: 450;
 	border-radius: 0.5em;
-}
-
-code {
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 6px 9px -4px rgba(0, 0, 0, 0.2), 0px 0.4px 0px 0.8px rgba(0, 0, 0, 0.1);
 }
 
 hr {

@@ -116,25 +116,56 @@ export default function Home() {
 			<div className={css.Clip}>
 				<div className={css.Columns}>
 					<article className={css.ScrollContent}>
-						<h1>
-							Meet <b>{title}</b>
-						</h1>
+						<section>
+							<div>
+								<h1>
+									Meet <b>{title}</b>
+								</h1>
 
-						<p>{description}</p>
-						<p>Compatible with Procfiles and Docker Compose.</p>
+								<p>{description}</p>
+								<p>Compatible with Procfiles and Docker Compose.</p>
 
-						<Link href={urls.download}>
-							<a className={css.GsButton}>
-								<Download />
-								<span>Get started with exo</span>
-							</a>
-						</Link>
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
 
-						<div className={css.OSList}>
-							<p>Available on MacOS, Linux, and WSL.</p>
+								<div className={css.OSList}>
+									<p>Available on MacOS, Linux, and WSL.</p>
 
-							<SupportedOSes />
-						</div>
+									<SupportedOSes />
+								</div>
+							</div>
+						</section>
+
+						<section>
+							<div>
+								<h2>Install now.</h2>
+								<pre>
+									<span className={css.Yellow}>{`curl`}</span>
+									<span className={css.Blue}>{` -sL `}</span>
+									<span>{`https://exo.deref.io/install `}</span>
+									<span className={css.Blue}>{`|`}</span>
+									<span className={css.Yellow}>{` bash`}</span>
+								</pre>
+								<p>
+									Prefer manual installation? See{" "}
+									<a href="https://docs.deref.io/exo/using-exo/install">
+										install docs
+									</a>
+									.
+								</p>
+								<p>
+									Easy to uninstall too:{" "}
+									<a href="https://docs.deref.io/exo/using-exo/uninstall">
+										uninstall docs
+									</a>
+									.
+								</p>
+							</div>
+						</section>
 					</article>
 
 					<aside className={css.VideoWrapper}>

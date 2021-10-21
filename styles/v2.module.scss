@@ -34,12 +34,18 @@
 .Columns {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	gap: 40px;
-	padding-top: 200px;
+	gap: 60px;
 }
 
 .ScrollContent {
 	font-size: 16px;
+	padding-bottom: 60px;
+
+	section {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+	}
 
 	h1 {
 		font-size: 40px;
@@ -59,7 +65,8 @@
 
 .PngWrapper {
 	position: fixed;
-	width: 780px;
+	width: 760px;
+	top: calc(50vh - 240px);
 	box-shadow: 0px -0.25px 0px 1px rgba(255, 255, 255, 0.2),
 		0px 18px 24px -6px rgba(0, 0, 0, 0.2), 0px 0.25px 0px 1px rgba(0, 0, 0, 0.3);
 	border-radius: 6px;
@@ -92,7 +99,8 @@
 	background: var(--bg-color);
 	color: var(--color);
 
-	h1 {
+	h1,
+	h2 {
 		color: var(--strong);
 	}
 }
@@ -252,4 +260,25 @@
 		background: url("/black-121021.png");
 		background-size: cover;
 	}
+}
+
+.Light {
+	--blue-text: #0070f0;
+	--orange-text: #b3231e;
+	--yellow-text: #b66700;
+}
+.Dark {
+	--blue-text: #77bbff;
+	--orange-text: #ff6655;
+	--yellow-text: #ffcc55;
+}
+
+.Blue {
+	color: var(--blue-text);
+}
+.Orange {
+	color: var(--orange-text);
+}
+.Yellow {
+	color: var(--yellow-text);
 }
