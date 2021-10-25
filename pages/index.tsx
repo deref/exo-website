@@ -90,7 +90,7 @@ export default function Home() {
 	return (
 		<main className={[css.Main, css[effectiveTheme()]].join(" ")}>
 			<Head>
-				<title>exo</title>
+				<title>exo | {description}</title>
 				<meta name="description" content={description} />
 				<meta content="dark light" name="color-scheme" />
 				<link rel="icon" href="/deref-rounded-icon.png" />
