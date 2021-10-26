@@ -153,17 +153,34 @@ export default function Home() {
 
 						<section>
 							<div>
-								<h2>Feature 1</h2>
+								<h2>Log viewer</h2>
 
 								<p>
-									Leverage agile frameworks to provide a robust synopsis for
-									high level overviews.
+									View logs from multiple development processes in a unified
+									stream.
 								</p>
 
+								<p>Toggle visibility and filter logs.</p>
+
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
+
+						<section>
+							<div>
+								<h2>Process orchestration</h2>
+
+								<p>Interactive process control:</p>
+
+								<p>Start, stop, &amp; restart services.</p>
+
 								<p>
-									Iterative approaches to corporate strategy foster
-									collaborative thinking to further the overall value
-									proposition.
+									Unified management of local processes and Docker containers.
 								</p>
 
 								<Link href={urls.download}>
@@ -177,17 +194,30 @@ export default function Home() {
 
 						<section>
 							<div>
-								<h2>Feature 2</h2>
+								<h2>Secret management</h2>
+
+								<p>Share API keys and credentials with your team.</p>
+
+								<p>Automatically injects environment variables.</p>
+
+								<Link href={urls.download}>
+									<a className={css.GsButton}>
+										<Download />
+										<span>Get started with exo</span>
+									</a>
+								</Link>
+							</div>
+						</section>
+
+						<section>
+							<div>
+								<h2>Command Line Interface</h2>
+
+								<p>Prefer the terminal?</p>
 
 								<p>
-									Leverage agile frameworks to provide a robust synopsis for
-									high level overviews.
-								</p>
-
-								<p>
-									Iterative approaches to corporate strategy foster
-									collaborative thinking to further the overall value
-									proposition.
+									Full support for all operations in both the terminal and web
+									UI. Powerful automation &amp; scripting support.
 								</p>
 
 								<Link href={urls.download}>
