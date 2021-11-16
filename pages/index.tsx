@@ -65,11 +65,14 @@ export default function Home() {
 			</pre>
 			<p>
 				Prefer manual installation? See{" "}
-				<a href="https://docs.deref.io/exo/using-exo/install">install docs</a>.
+				<a href="https://docs.deref.io/exo/getting-started/install">
+					install docs
+				</a>
+				.
 			</p>
 			<p>
 				Easy to uninstall too:{" "}
-				<a href="https://docs.deref.io/exo/using-exo/uninstall">
+				<a href="https://docs.deref.io/exo/getting-started/install/uninstall">
 					uninstall docs
 				</a>
 				.
@@ -116,7 +119,10 @@ export default function Home() {
 			</pre>
 			<p>
 				For more, see{" "}
-				<a href="https://docs.deref.io/exo/using-exo/guide">the guide</a>.
+				<a href="https://docs.deref.io/exo/getting-started/quick-start">
+					the guide
+				</a>
+				.
 			</p>
 
 			<br />
