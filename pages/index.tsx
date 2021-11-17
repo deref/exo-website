@@ -19,6 +19,23 @@ const urls = {
 	privacy: "/",
 };
 
+function AutoScrollSection({ children }: any) {
+	return (
+		<section
+			onFocus={(e) =>
+				window.scrollTo(
+					0,
+					e.currentTarget.offsetTop +
+						e.currentTarget.offsetHeight / 2 -
+						window.outerHeight / 2
+				)
+			}
+		>
+			{children}
+		</section>
+	);
+}
+
 export default function Home() {
 	const [title, setTitle] = useState("exo");
 	const [dark, setDark] = useState(false);
@@ -132,7 +149,7 @@ export default function Home() {
 			<div className={css.Clip}>
 				<div className={css.Columns}>
 					<article className={css.ScrollContent}>
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h1>
 									Meet <b>{title}</b>
@@ -154,9 +171,9 @@ export default function Home() {
 									<SupportedOSes />
 								</div>
 							</div>
-						</section>
+						</AutoScrollSection>
 
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h2>Log viewer</h2>
 
@@ -174,9 +191,9 @@ export default function Home() {
 									</a>
 								</Link>
 							</div>
-						</section>
+						</AutoScrollSection>
 
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h2>Process orchestration</h2>
 
@@ -195,9 +212,9 @@ export default function Home() {
 									</a>
 								</Link>
 							</div>
-						</section>
+						</AutoScrollSection>
 
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h2>Secret management</h2>
 
@@ -212,9 +229,9 @@ export default function Home() {
 									</a>
 								</Link>
 							</div>
-						</section>
+						</AutoScrollSection>
 
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h2>Command Line Interface</h2>
 
@@ -232,9 +249,9 @@ export default function Home() {
 									</a>
 								</Link>
 							</div>
-						</section>
+						</AutoScrollSection>
 
-						<section>
+						<AutoScrollSection>
 							<div>
 								<h2>Install now.</h2>
 								<pre>
@@ -259,7 +276,7 @@ export default function Home() {
 									.
 								</p>
 							</div>
-						</section>
+						</AutoScrollSection>
 					</article>
 
 					<aside className={css.VideoWrapper}>
