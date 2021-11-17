@@ -60,7 +60,7 @@
 	}
 
 	section {
-		height: max(50vh, 480px);
+		height: max(50vh, 400px);
 		display: flex;
 		align-items: center;
 	}
@@ -160,8 +160,8 @@
 		align-items: center;
 
 		// Mobile responsive
-		padding-top: min(max(40px, 8vw), 80px);
-		padding-bottom: min(max(40px, 8vw), 80px);
+		padding-top: min(max(24px, 8vw), 80px);
+		padding-bottom: min(max(24px, 8vw), 80px);
 	}
 
 	.Logo {
@@ -243,7 +243,8 @@
 
 	> div {
 		// Mobile responsive
-		height: min(max(90px, 18vw), 180px);
+		height: min(max(60px, 18vw), 180px);
+		white-space: nowrap;
 
 		display: flex;
 		align-items: center;
