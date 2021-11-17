@@ -16,7 +16,7 @@ const urls = {
 	github: "https://github.com/deref/exo",
 	download: "https://github.com/deref/exo#getting-started",
 	license: "https://github.com/deref/exo/blob/main/LICENSE",
-	privacy: "/",
+	privacy: "https://www.deref.io/privacy",
 };
 
 function AutoScrollSection({ children }: any) {
