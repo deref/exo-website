@@ -11,6 +11,8 @@ import Sun from "~/com/Sun.svg";
 import GitHub from "~/com/GitHub.svg";
 import Download from "~/com/Download.svg";
 
+//XXX IMPORTANT: Keep these URLs updated if page layout changes on
+//               other sites (GitHub, Exo Docs, Deref.io)!
 const urls = {
 	docs: "https://docs.deref.io/exo",
 	github: "https://github.com/deref/exo",
