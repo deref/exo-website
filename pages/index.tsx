@@ -27,7 +27,7 @@ function AutoScrollSection({ children }: any) {
 					0,
 					e.currentTarget.offsetTop +
 						e.currentTarget.offsetHeight / 2 -
-						window.outerHeight / 2
+						window.innerHeight / 2
 				)
 			}
 		>
