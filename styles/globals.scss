@@ -127,3 +127,9 @@ button {
 ::-webkit-scrollbar-thumb:hover {
 	background: #999999;
 }
+
+@media (max-width: 640px) {
+	.hideMobile {
+		display: none;
+	}
+}

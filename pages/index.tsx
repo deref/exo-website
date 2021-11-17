@@ -136,7 +136,7 @@ export default function Home() {
 						<Link href={urls.github}>
 							<a className={css.GitHubLink}>
 								<GitHub />
-								GitHub
+								<span className="hideMobile">GitHub</span>
 							</a>
 						</Link>
 						<button className={css.ThemeButton} onClick={toggleTheme}>

@@ -147,8 +147,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-top: 80px;
-		padding-bottom: 80px;
+		padding-top: min(max(40px, 8vw), 80px);
+		padding-bottom: min(max(40px, 8vw), 80px);
 	}
 
 	.Logo {
@@ -229,7 +229,7 @@
 	);
 
 	> div {
-		height: 180px;
+		height: min(max(90px, 18vw), 180px);
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
