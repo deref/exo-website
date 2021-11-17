@@ -45,6 +45,9 @@
 }
 
 .ScrollContent {
+	// Mobile responsive
+	max-width: calc(100vw - 100px);
+
 	font-size: 16px;
 	padding: 25vh 0;
 
@@ -147,6 +150,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		// Mobile responsive
 		padding-top: min(max(40px, 8vw), 80px);
 		padding-bottom: min(max(40px, 8vw), 80px);
 	}
@@ -229,7 +234,9 @@
 	);
 
 	> div {
+		// Mobile responsive
 		height: min(max(90px, 18vw), 180px);
+
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
