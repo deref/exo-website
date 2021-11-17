@@ -73,9 +73,15 @@ export default function Home() {
 
 		document.addEventListener("scroll", (e) => {
 			setScrollY(
-				Math.round(
-					(100 * window.scrollY) /
-						(document.body.scrollHeight - window.innerHeight)
+				Math.min(
+					Math.max(
+						Math.round(
+							(100 * window.scrollY) /
+								(document.body.scrollHeight - window.innerHeight)
+						),
+						0
+					),
+					100
 				)
 			);
 		});
@@ -103,7 +109,6 @@ export default function Home() {
 							<div className={css.Logo}>
 								<div />
 								exo
-								<span style={{ color: "red" }}>{scrollY}%</span>
 							</div>
 						</a>
 					</Link>

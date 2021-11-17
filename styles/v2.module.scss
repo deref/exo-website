@@ -92,8 +92,9 @@
 	bottom: 0;
 
 	div {
-		background: red;
-		height: 3px;
+		background: currentColor;
+		height: 2px;
+		opacity: 0.25;
 	}
 }
 
