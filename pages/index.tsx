@@ -137,7 +137,7 @@ export default function Home() {
 								<p>Compatible with Procfiles and Docker Compose.</p>
 
 								<Link href={urls.download}>
-									<a className={css.GsButton}>
+									<a className={css.GsButtonLarge}>
 										<Download />
 										<span>Get started with exo</span>
 									</a>
@@ -165,7 +165,7 @@ export default function Home() {
 								<Link href={urls.download}>
 									<a className={css.GsButton}>
 										<Download />
-										<span>Get started with exo</span>
+										<span>Try it out now</span>
 									</a>
 								</Link>
 							</div>
@@ -186,7 +186,7 @@ export default function Home() {
 								<Link href={urls.download}>
 									<a className={css.GsButton}>
 										<Download />
-										<span>Get started with exo</span>
+										<span>See it in action</span>
 									</a>
 								</Link>
 							</div>
@@ -203,7 +203,7 @@ export default function Home() {
 								<Link href={urls.download}>
 									<a className={css.GsButton}>
 										<Download />
-										<span>Get started with exo</span>
+										<span>Download now</span>
 									</a>
 								</Link>
 							</div>
@@ -223,7 +223,7 @@ export default function Home() {
 								<Link href={urls.download}>
 									<a className={css.GsButton}>
 										<Download />
-										<span>Get started with exo</span>
+										<span>Get started</span>
 									</a>
 								</Link>
 							</div>
@@ -240,7 +240,7 @@ export default function Home() {
 									<span className={css.Yellow}>{` bash`}</span>
 								</pre>
 								<p>
-									Prefer manual installation? See{" "}
+									Packages and manual installation options also available: See{" "}
 									<a href="https://docs.deref.io/exo/using-exo/install">
 										install docs
 									</a>

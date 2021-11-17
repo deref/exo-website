@@ -1,4 +1,5 @@
-.GsButton {
+.GsButton,
+.GsButtonLarge {
 	background: linear-gradient(0deg, #f0f0f0, #ffffff);
 	box-shadow: 0 0.25px 0 1px #00000033, 0 6px 12px #00000022;
 	border-radius: 5px;
@@ -31,6 +32,12 @@
 	}
 }
 
+.GsButton {
+	font-size: 14px;
+	height: 46px;
+	width: 176px;
+}
+
 .Columns {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -56,6 +63,7 @@
 	p {
 		margin: 0;
 		margin-bottom: 12px;
+		line-height: 1.45em;
 	}
 }
 
@@ -255,7 +263,8 @@
 	--color: #eeffff;
 	--strong: #ffffff;
 
-	.GsButton {
+	.GsButton,
+	.GsButtonLarge {
 		background: linear-gradient(0deg, #202323, #303434);
 		box-shadow: 0 -0.5px 0 1px #ddffff44;
 
