@@ -2,8 +2,15 @@ html,
 body {
 	padding: 0;
 	margin: 0;
+	max-width: 100vw;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
 	font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+::selection {
+	background: #99999944;
 }
 
 :root {
@@ -29,19 +36,9 @@ body {
 	color: var(--yellow-text);
 }
 
-body {
-	padding: max(min(60px, 15vw - 30px), 20px);
-	margin: 0 auto;
-	max-width: 800px;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
-}
-
-.main-div {
-	position: relative;
 }
 
 .docs-link {
@@ -58,19 +55,6 @@ a {
 	}
 }
 
-.svg-wrapper {
-	position: relative;
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
-	border-radius: 8px;
-	overflow: hidden;
-	// aspect-ratio: calc(1122 / 524);
-
-	svg {
-		max-width: 100%;
-	}
-}
-
 p {
 	a {
 		opacity: 0.75;
@@ -83,31 +67,24 @@ p {
 		}
 	}
 	code {
-		padding: 4px 8px;
-		margin: -4px 0;
+		padding: 0 2px;
+		margin: 0;
 	}
 }
 
 pre {
-	padding: 1em 2em;
+	padding: 0;
+	margin: 24px 0;
 	overflow-x: auto;
 	overflow-y: hidden;
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 8px 12px -6px rgba(0, 0, 0, 0.33), 0px 0.5px 0px 1px rgba(0, 0, 0, 0.15);
 }
 
 pre,
 code {
-	background: #44444411;
+	background: none;
 	font-family: "Fira Code", monospace;
 	font-size: 0.85em;
 	font-weight: 450;
-	border-radius: 0.5em;
-}
-
-code {
-	box-shadow: 0px 0.33px 0px 1px rgba(255, 255, 255, 0.15),
-		0px 6px 9px -4px rgba(0, 0, 0, 0.2), 0px 0.4px 0px 0.8px rgba(0, 0, 0, 0.1);
 }
 
 hr {
@@ -130,26 +107,37 @@ strong {
 	font-weight: 550;
 }
 
-/* Temp */
-.png-screenshot {
-	width: 100%;
-	aspect-ratio: 1.777;
-	background: url("/light-121021.png");
-	background-size: cover;
+button {
+	color: currentColor;
 }
 
-.dark-only {
-	display: none;
+/* Avoid awful default scrollbars in most OS/Browsers, especially in horizontally scrolling text displays. */
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 4px;
+	background: #333333;
+	margin: 4px;
+	position: relative;
 }
-@media (prefers-color-scheme: dark) {
-	.dark-only {
-		display: block;
-	}
-	.light-only {
+
+::-webkit-scrollbar-thumb {
+	background: #666666;
+	border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #999999;
+}
+
+@media (max-width: 640px) {
+	.hideMobile {
 		display: none;
 	}
-	.png-screenshot {
-		background: url("/black-121021.png");
-		background-size: cover;
+}
+
+@media (min-width: 641px) {
+	.hideWide {
+		display: none;
 	}
 }

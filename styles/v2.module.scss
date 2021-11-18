@@ -1,0 +1,354 @@
+.GsButton,
+.GsButtonLarge {
+	background: linear-gradient(0deg, #f0f0f0, #ffffff);
+	box-shadow: 0 0.25px 0 1px #00000033, 0 6px 12px #00000022;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 500;
+	height: 52px;
+	width: 240px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	outline: none;
+	margin-top: 60px;
+	max-width: calc(100vw - 60px);
+	overflow: hidden;
+	white-space: nowrap;
+
+	span {
+		user-select: none;
+	}
+
+	&:hover,
+	&:focus-within {
+		background: linear-gradient(0deg, #2773ff33, #2773ff11);
+		box-shadow: 0 0 0 1px #2773ff88, 0 6px 12px #0044ff22;
+		color: #0049cf;
+	}
+
+	svg {
+		width: 16px;
+		height: 16px;
+		margin-left: -8px;
+	}
+}
+
+.GsButton {
+	font-size: 14px;
+	height: 46px;
+	width: 176px;
+}
+
+.Columns {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 60px;
+}
+
+.ScrollContent {
+	// Mobile responsive
+	max-width: calc(100vw - 60px);
+
+	font-size: 16px;
+	padding: 25vh 0;
+
+	pre {
+		max-width: calc(100vw - 60px);
+		overflow-x: auto;
+		white-space: pre-wrap;
+	}
+
+	section {
+		height: max(50vh, 400px);
+		display: flex;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 40px;
+		margin: 0;
+		margin-bottom: 24px;
+	}
+
+	p {
+		margin: 0;
+		margin-bottom: 12px;
+		line-height: 1.45em;
+	}
+}
+
+.VideoWrapper {
+	position: relative;
+}
+
+.PngWrapper {
+	position: fixed;
+	width: 760px;
+	top: calc(50vh - 240px);
+	box-shadow: 0px -0.25px 0px 1px rgba(255, 255, 255, 0.2),
+		0px 18px 24px -6px rgba(0, 0, 0, 0.2), 0px 0.25px 0px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	overflow: hidden;
+	// aspect-ratio: calc(1122 / 524);
+
+	svg {
+		max-width: 100%;
+	}
+}
+
+.ProgressBar {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+
+	div {
+		background: currentColor;
+		height: 2px;
+		opacity: 0.25;
+	}
+}
+
+.OSList {
+	font-size: 12px;
+	color: #334455;
+	margin: 40px 0;
+
+	p {
+		margin-bottom: 20px;
+	}
+}
+
+.Dark .OSList {
+	color: #b0b3b6;
+}
+
+.Main {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background: var(--bg-color);
+	color: var(--color);
+
+	h1,
+	h2 {
+		color: var(--strong);
+	}
+}
+
+.Clip {
+	max-width: 1300px;
+	padding: 0 min(max(30px, 5vw), 50px);
+	margin: 0 auto;
+}
+
+.Header {
+	position: fixed;
+	z-index: 100;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	background: linear-gradient(
+		0deg,
+		var(--bg-color-transparent),
+		var(--bg-color) 50%
+	);
+
+	> div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		// Mobile responsive
+		padding-top: min(max(24px, 8vw), 80px);
+		padding-bottom: min(max(24px, 8vw), 80px);
+	}
+
+	.Logo {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 16px;
+		font-weight: 500;
+		padding: 12px;
+		margin: -12px;
+
+		div {
+			width: 24px;
+			height: 24px;
+			background: url("/deref-rounded-icon.png");
+			background-size: contain;
+		}
+	}
+
+	.Links {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+
+		.GitHubLink {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+
+			svg {
+				height: 13px;
+				width: 13px;
+			}
+		}
+
+		a {
+			display: block;
+			padding: 9px;
+			margin: -9px;
+			font-size: 14px;
+			font-weight: 500;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.ThemeButton {
+			background: none;
+			border: none;
+			padding: 0;
+			margin: 0;
+			width: 36px;
+			height: 36px;
+			margin: -9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			svg {
+				width: 18px;
+				height: 18px;
+			}
+		}
+	}
+}
+
+.Footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	background: linear-gradient(
+		0deg,
+		var(--bg-color),
+		var(--bg-color-transparent)
+	);
+
+	> div {
+		// Mobile responsive
+		height: min(max(60px, 18vw), 180px);
+		white-space: nowrap;
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		font-size: 12px;
+		gap: 24px;
+
+		a {
+			font-weight: 600;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.Media0 {
+	--light-url: url("/ss-logs-light.png");
+	--black-url: url("/ss-logs-black.png");
+}
+
+.Media1 {
+	--light-url: url("/ss-logs-light.png");
+	--black-url: url("/ss-logs-black.png");
+}
+
+.Media2 {
+	--light-url: url("/ss-docker-light.png");
+	--black-url: url("/ss-docker-black.png");
+}
+
+.Media3 {
+	--light-url: url("/ss-secrets-light.png");
+	--black-url: url("/ss-secrets-black.png");
+}
+
+.Media4 {
+	--light-url: url("/CLILight.png");
+	--black-url: url("/CLIBlack.png");
+}
+
+.Media5 {
+	--light-url: url("/ss-starters-light.png");
+	--black-url: url("/ss-starters-black.png");
+}
+
+.PngScreenshot {
+	width: 100%;
+	aspect-ratio: 1.777;
+	background: var(--light-url);
+	background-size: cover;
+}
+
+.Light {
+	--bg-color: #ffffff;
+	--bg-color-transparent: #ffffff00;
+	--color: #223344;
+	--strong: #001122;
+}
+
+.Dark {
+	--bg-color: #040608;
+	--bg-color-transparent: #04060800;
+	--color: #eeffff;
+	--strong: #ffffff;
+
+	.GsButton,
+	.GsButtonLarge {
+		background: linear-gradient(0deg, #202323, #303434);
+		box-shadow: 0 -0.5px 0 1px #ddffff44;
+
+		&:hover,
+		&:focus-within {
+			background: linear-gradient(0deg, #2773ff44, #2773ff66);
+			box-shadow: 0 0 0 1px #2773ff, 0 6px 18px 6px #0044ff44;
+			color: #ffffff;
+		}
+	}
+
+	.PngScreenshot {
+		background: var(--black-url);
+		background-size: cover;
+	}
+}
+
+.Light {
+	--blue-text: #0070f0;
+	--orange-text: #b3231e;
+	--yellow-text: #b66700;
+}
+.Dark {
+	--blue-text: #77bbff;
+	--orange-text: #ff6655;
+	--yellow-text: #ffcc55;
+}
+
+.Blue {
+	color: var(--blue-text);
+}
+.Orange {
+	color: var(--orange-text);
+}
+.Yellow {
+	color: var(--yellow-text);
+}
