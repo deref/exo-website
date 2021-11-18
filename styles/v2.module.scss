@@ -192,6 +192,14 @@
 			align-items: center;
 			gap: 6px;
 
+			.Stars {
+				display: inline-flex;
+				font-size: 0.85em;
+				gap: 2px;
+				align-items: center;
+				opacity: 0.75;
+			}
+
 			svg {
 				height: 13px;
 				width: 13px;

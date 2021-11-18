@@ -9,6 +9,7 @@ import SupportedOSes from "~/com/SupportedOSes.svg";
 import Moon from "~/com/Moon.svg";
 import Sun from "~/com/Sun.svg";
 import GitHub from "~/com/GitHub.svg";
+import Star from "~/com/Star.svg";
 import Download from "~/com/Download.svg";
 
 //XXX IMPORTANT: Keep these URLs updated if page layout changes on
@@ -52,6 +53,8 @@ export default function Home() {
 	const [dark, setDark] = useState(false);
 	const [lsTheme, setLsTheme] = useState<string | null>(null);
 	const [scrollY, setScrollY] = useState(0);
+
+	const [stars, setStars] = useState("...");
 
 	const lsThemeKey = "io.deref.exo/theme";
 
@@ -114,6 +117,10 @@ export default function Home() {
 			);
 		});
 
+		fetch("https://api.github.com/repos/deref/exo?page=$i&per_page=100")
+			.then((res) => res.json())
+			.then((json) => setStars(json.stargazers_count));
+
 		return () => {
 			clearInterval(titleBlinker);
 		};
@@ -153,7 +160,10 @@ export default function Home() {
 						<Link href={urls.github}>
 							<a className={css.GitHubLink}>
 								<GitHub />
-								<span className="hideMobile">GitHub</span>
+								<div className="hideMobile">GitHub</div>
+								<div className={[css.Stars, "hideMobile"].join(" ")}>
+									<Star /> {stars}
+								</div>
 							</a>
 						</Link>
 						<button className={css.ThemeButton} onClick={toggleTheme}>
