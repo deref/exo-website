@@ -262,10 +262,40 @@
 	}
 }
 
+.Media0 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
+.Media1 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
+.Media2 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
+.Media3 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
+.Media4 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
+.Media5 {
+	--light-url: url("/light-121021.png");
+	--black-url: url("/black-121021.png");
+}
+
 .PngScreenshot {
 	width: 100%;
 	aspect-ratio: 1.777;
-	background: url("/light-121021.png");
+	background: var(--light-url);
 	background-size: cover;
 }
 
@@ -296,7 +326,7 @@
 	}
 
 	.PngScreenshot {
-		background: url("/black-121021.png");
+		background: var(--black-url);
 		background-size: cover;
 	}
 }

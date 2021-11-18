@@ -21,7 +21,16 @@ const urls = {
 	privacy: "https://www.deref.io/privacy",
 };
 
-function AutoScrollSection({ children }: any) {
+const media = [
+	<div key="0" className={[css.PngScreenshot, css.Media0].join(" ")} />,
+	<div key="1" className={[css.PngScreenshot, css.Media1].join(" ")} />,
+	<div key="2" className={[css.PngScreenshot, css.Media2].join(" ")} />,
+	<div key="3" className={[css.PngScreenshot, css.Media3].join(" ")} />,
+	<div key="4" className={[css.PngScreenshot, css.Media4].join(" ")} />,
+	<div key="5" className={[css.PngScreenshot, css.Media5].join(" ")} />,
+];
+
+const AutoScrollSection = ({ children }: any) => {
 	return (
 		<section
 			onFocus={(e) =>
@@ -36,7 +45,7 @@ function AutoScrollSection({ children }: any) {
 			{children}
 		</section>
 	);
-}
+};
 
 export default function Home() {
 	const [title, setTitle] = useState("exo");
@@ -109,6 +118,12 @@ export default function Home() {
 			clearInterval(titleBlinker);
 		};
 	}, [title, lsTheme]);
+
+	const mediaByPercentage = (percentage: number) => {
+		const L = media.length;
+		const i = Math.min(Math.floor((percentage / 100) * L), media.length - 1);
+		return media[i];
+	};
 
 	const description = "Process manager & log viewer for dev.";
 
@@ -283,7 +298,7 @@ export default function Home() {
 
 					<aside className={css.VideoWrapper}>
 						<div className={css.PngWrapper}>
-							<div className={css.PngScreenshot} />
+							{mediaByPercentage(scrollY)}
 							<div className={css.ProgressBar}>
 								<div style={{ width: scrollY + "%" }} />
 							</div>
