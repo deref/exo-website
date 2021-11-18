@@ -20,6 +20,8 @@ const urls = {
 	download: "https://github.com/deref/exo#getting-started",
 	license: "https://github.com/deref/exo/blob/main/LICENSE",
 	privacy: "https://www.deref.io/privacy",
+	install: "https://docs.deref.io/exo/getting-started/install",
+	uninstall: "https://docs.deref.io/exo/getting-started/install/uninstall",
 };
 
 const media = [
@@ -290,14 +292,14 @@ export default function Home() {
 								</pre>
 								<p>
 									Packages and manual installation options also available: See{" "}
-									<a href="https://docs.deref.io/exo/using-exo/install">
+									<a href={urls.install}>
 										install docs
 									</a>
 									.
 								</p>
 								<p>
 									Easy to uninstall too:{" "}
-									<a href="https://docs.deref.io/exo/using-exo/uninstall">
+									<a href={urls.uninstall}>
 										uninstall docs
 									</a>
 									.
