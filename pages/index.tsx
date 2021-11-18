@@ -308,12 +308,18 @@ export default function Home() {
 			</div>
 			<footer className={css.Footer}>
 				<div className={css.Clip}>
-					<p>Copyright {new Date().getFullYear()} Deref Inc.</p>
+					<p>
+						<span className="hideWide">©</span>
+						<span className="hideMobile">Copyright</span>
+						{" " + new Date().getFullYear()} Deref Inc.
+					</p>
 					<Link href={urls.license}>
 						<a>License</a>
 					</Link>
 					<Link href={urls.privacy}>
-						<a>Privacy Policy</a>
+						<a>
+							Privacy<span className="hideMobile"> Policy</span>
+						</a>
 					</Link>
 				</div>
 			</footer>
